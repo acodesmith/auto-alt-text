@@ -1,0 +1,33 @@
+.aat-progress-wrap {
+    padding: 3%;
+}
+
+.aat-progress-bar {
+    background: #ddd;
+    border-radius: 100px;
+    border: 2px solid #ccc;
+    height: 2em;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.aat-progress-bar span {
+    animation-name: pulse;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    background: #0073aa;
+    box-shadow: inset 0px 0px 20px 7px #00a0d2;
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: width 200ms ease;
+    width: 0;
+}
+
+@keyframes pulse {
+    50% {
+        box-shadow: inset 0px 0px 9px 1px #00a0d2;
+    }
+}
