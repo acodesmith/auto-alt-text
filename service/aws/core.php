@@ -27,7 +27,7 @@ class Auto_Alt_Text_Aws implements Auto_Alt_Text_Service_Interface
     public function load()
     {
         if( ! class_exists( 'AwsClient' ) )
-            require( AAT_PLUGIN_PATH . 'vendor/autoload.php' );
+            require( AAT_PLUGIN_PATH . 'service/aws/vendor/autoload.php' );
     }
 
     /**

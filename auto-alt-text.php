@@ -109,27 +109,20 @@ function auto_alt_text_batch_button()
 add_action( 'wp_ajax_aat_batch', 'auto_alt_text_batch_button' );
 
 
-//if ( ! wp_next_scheduled( 'process_alt_text_hook' ) ) {
-//    wp_schedule_event( time(), 'hourly', 'process_alt_text_hook' );
-//}
-//
-//add_action( 'process_alt_text_hook', 'process_alt_text' );
-//
-//function process_alt_text() {
-//
-//
-//}
-
+/** Used for testing the service on init */
 //add_action( 'init', 'test_alttext' );
 //
 //function test_alttext()
 //{
 //
-//    include( __DIR__ . '/classes/auto-alt-text-common.php' );
-//    include( __DIR__ . '/classes/auto-alt-text-batch.php' );
-//    include( __DIR__ . '/classes/auto-alt-text-db.php' );
-//    include( __DIR__ . '/classes/auto-alt-text-service-interface.php' );
-//    include( __DIR__ . '/classes/auto-alt-text-service-switch.php' );
+//    auto_alt_text_load( [ 'service', 'admin', 'batch' ] );
 //
+//    Alt_Text_Service_Switch::$service = Alt_Text_Service_Switch::SERVICE_AWS;
+//
+//    if( $service = Alt_Text_Service_Switch::instance() ) {
+//
+//        Auto_Alt_Text_Batch::run($service);
+//
+//    }
 //
 //}

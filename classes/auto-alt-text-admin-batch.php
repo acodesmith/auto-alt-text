@@ -40,13 +40,10 @@ class Auto_Alt_Text_Admin_Batch
             $total = Auto_Alt_Text_Batch::totalImages();
 
             if( $total > 0 ) {
+
                 $percentage = 100 - ($total / Auto_Alt_Text_Batch::$limit);
-
-//                if( floatval( $percentage ) > 1 ) {
-//
-//                }
-
                 self::respond('', self::STAGE_PROCESSING, $percentage);
+
             }else{
 
                 $html = '<h3>All done! Woot Woot!</h3>';
