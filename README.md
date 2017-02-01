@@ -5,7 +5,7 @@ WordPress plugin for generating alt text from images using AI image recognition 
 ### AWS Image Rekognition
 AWS Key and Secret require full Image Rekognition Permissions. 
 
-### Processing Images
+## Processing Images
 Currently the plugin only supports batch image processing. 
 The recognition software can take time to process each image. 
 The best method for processing the images is in groups. 
