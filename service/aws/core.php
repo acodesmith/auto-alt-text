@@ -8,6 +8,8 @@ class Auto_Alt_Text_Aws implements Auto_Alt_Text_Service_Interface
     public static $__instance;
     public static $__service;
 
+    public static $support_image_types = ['jpg', 'jpeg', 'png'];
+
     /**
      * @return Auto_Alt_Text_Aws
      */
@@ -92,14 +94,19 @@ class Auto_Alt_Text_Aws implements Auto_Alt_Text_Service_Interface
 
                     if( $fullImagePath && file_exists( $fullImagePath ) ) {
 
-                        if( $labels = self::detectLabels( $fullImagePath ) ) {
+                        $imageExt = pathinfo( $fullImagePath, PATHINFO_EXTENSION );
 
-                            if( $altText = self::concatenateResults( $labels ) ) {
+                        if( in_array( $imageExt, self::$support_image_types ) ) {
 
-                                update_post_meta( $image->ID, '_wp_attachment_image_alt', $altText );
+                            if( $labels = self::detectLabels( $fullImagePath ) ) {
+
+                                if( $altText = self::concatenateResults( $labels ) ) {
+
+                                    update_post_meta( $image->ID, '_wp_attachment_image_alt', $altText );
+                                }
+
+                                $count++;
                             }
-
-                            $count++;
                         }
                     }
                 }

@@ -106,10 +106,10 @@ function auto_alt_text_batch_button()
 add_action( 'wp_ajax_aat_batch', 'auto_alt_text_batch_button' );
 
 
-///** Used for testing the service on init */
+/** Used for testing the service on init */
 //function test_alttext()
 //{
-//    auto_alt_text_add_attachment_hook( 85 );
+////    auto_alt_text_add_attachment_hook( 88 );
 //
 //    Alt_Text_Service_Switch::$service = Alt_Text_Service_Switch::SERVICE_AWS;
 //
