@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) )
     exit;
 
 if( ! class_exists('Alt_Text_Service_Switch') )
-    require( __DIR__ . 'auto-alt-text-service-switch.php' );
+    require( __DIR__ . '/auto-alt-text-service-switch.php' );
 
 class Auto_Alt_Text_Common
 {

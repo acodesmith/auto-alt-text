@@ -136,7 +136,7 @@ class Auto_Alt_Text_Aws implements Auto_Alt_Text_Service_Interface
 
         $prefix     = Auto_Alt_Text_Common::getAltPrefix();
         $confidence = Auto_Alt_Text_Common::getConfidence();
-        $text       = ' ';
+        $text       = '';
 
         foreach( $results as $key => $result ) {
 
@@ -148,6 +148,6 @@ class Auto_Alt_Text_Aws implements Auto_Alt_Text_Service_Interface
         if( empty( $text ) )
             return false;
 
-        return $prefix . $text;
+        return $prefix . ' ' . $text;
     }
 }

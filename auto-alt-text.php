@@ -18,6 +18,14 @@
 define( 'AAT_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'AAT_PLUGIN_URI', plugin_dir_url( __FILE__ ) );
 
+/**
+ * Load all the custom classes
+ */
+function auto_alt_text_init() {
+    auto_alt_text_load();
+    add_filter('add_attachment', 'auto_alt_text_add_attachment_hook');
+}
+add_action( 'init', 'auto_alt_text_init' );
 
 /**
  * Add Auto Alt Text submenu item to the settings admin section
@@ -33,8 +41,6 @@ add_action( 'admin_menu', 'auto_alt_text_setup' );
  */
 function auto_alt_text_admin_page()
 {
-    auto_alt_text_load( [ 'service', 'admin', 'batch' ] );
-
     Auto_Alt_Text_Admin::scripts();
 
     if( ! empty( $_POST ) ) {
@@ -65,35 +71,26 @@ function auto_alt_text_admin_page()
 /**
  * @param array $groups
  */
-function auto_alt_text_load( $groups = [] )
+function auto_alt_text_load()
 {
-    foreach( $groups as $group ) {
-
-        switch( $group ) {
-            case 'service':
-                require( __DIR__ . '/classes/auto-alt-text-service-interface.php');
-                require( __DIR__ . '/classes/auto-alt-text-service-switch.php');
-                break;
-            case 'admin':
-                require( __DIR__ . '/classes/auto-alt-text-admin.php');
-                break;
-            case 'batch':
-                require( __DIR__ . '/classes/auto-alt-text-batch.php' );
-                require( __DIR__ . '/classes/auto-alt-text-admin-batch.php');
-                break;
-        }
-    }
-
-    //Defaults
+    //Classes
+    require( __DIR__ . '/classes/auto-alt-text-service-interface.php');
+    require( __DIR__ . '/classes/auto-alt-text-service-switch.php');
+    require( __DIR__ . '/classes/auto-alt-text-admin.php');
+    require( __DIR__ . '/classes/auto-alt-text-batch.php' );
+    require( __DIR__ . '/classes/auto-alt-text-admin-batch.php');
     require( __DIR__ . '/classes/auto-alt-text-common.php');
     require( __DIR__ . '/classes/auto-alt-text-db.php' );
+
+    //Functions
+    require( __DIR__ . '/functions/auto-alt-text-add-attachment.php' );
 }
 
-
+/**
+ * Stages based on the admin batch process.
+ */
 function auto_alt_text_batch_button()
 {
-    auto_alt_text_load( [ 'service', 'admin', 'batch' ] );
-
     switch( $_GET['stage'] )
     {
         case 'start':
@@ -109,13 +106,10 @@ function auto_alt_text_batch_button()
 add_action( 'wp_ajax_aat_batch', 'auto_alt_text_batch_button' );
 
 
-/** Used for testing the service on init */
-//add_action( 'init', 'test_alttext' );
-//
+///** Used for testing the service on init */
 //function test_alttext()
 //{
-//
-//    auto_alt_text_load( [ 'service', 'admin', 'batch' ] );
+//    auto_alt_text_add_attachment_hook( 85 );
 //
 //    Alt_Text_Service_Switch::$service = Alt_Text_Service_Switch::SERVICE_AWS;
 //
@@ -124,5 +118,5 @@ add_action( 'wp_ajax_aat_batch', 'auto_alt_text_batch_button' );
 //        Auto_Alt_Text_Batch::run($service);
 //
 //    }
-//
 //}
+//add_action( 'init', 'test_alttext' );
