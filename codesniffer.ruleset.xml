@@ -15,5 +15,13 @@
 		</properties>
 	</rule>
 
+	<rule ref="Generic.WhiteSpace.ScopeIndent.IncorrectExact">
+		<type>warning</type>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid">
+		<type>warning</type>
+	</rule>
+
 	<exclude-pattern>/service/aws/vendor/*</exclude-pattern>
 </ruleset>

@@ -35,7 +35,7 @@ class Auto_Alt_Text_Common
      *
      * @return int|mixed
      */
-    public static function getConfidence()
+    public static function get_confidence()
     {
         $stored = get_option( self::CONFIDENCE_NAMESPACE );
 
@@ -47,7 +47,7 @@ class Auto_Alt_Text_Common
      *
      * @return mixed|string
      */
-    public static function getAltPrefix()
+    public static function get_alt_prefix()
     {
         $stored = get_option( self::ALT_PREFIX_NAMESPACE );
 
@@ -59,7 +59,7 @@ class Auto_Alt_Text_Common
      *
      * @return mixed|string
      */
-    public static function getSelectedService()
+    public static function get_selected_service()
     {
         $stored = get_option( self::SELECTED_SERVICE_NAMESPACE );
 

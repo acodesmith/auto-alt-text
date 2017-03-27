@@ -36,10 +36,10 @@ class Auto_Alt_Text_Batch
      */
     public static function run( $service, $group = true )
     {
-        if( $totalImages = self::totalImages() ) {
+        if( $total_images = self::total_images() ) {
 
             $count = 0;
-            $totalGroups = ceil( $totalImages / self::$limit );
+            $totalGroups = ceil( $total_images / self::$limit );
 
             if( $group ) {
 
@@ -63,7 +63,7 @@ class Auto_Alt_Text_Batch
      *
      * @return bool
      */
-    public static function totalImages()
+    public static function total_images()
     {
         $images = Auto_Alt_Text_Db::getImagesNeedingAltText( false, false, true);
 

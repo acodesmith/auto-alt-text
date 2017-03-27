@@ -47,45 +47,44 @@ add_action( 'admin_menu', 'auto_alt_text_setup' );
  */
 function auto_alt_text_admin_page() {
 	Auto_Alt_Text_Admin::scripts();
+	$has_auth = false;
 
 	if ( ! empty( $_POST ) ) {
-		Auto_Alt_Text_Admin::processPost();
+		Auto_Alt_Text_Admin::process_post();
 	}
 
 	/** Variables for the view */
-	$nonce_action    = Auto_Alt_Text_Common::NONCE_NAMESPACE;
-	$confidence      = Auto_Alt_Text_Common::getConfidence();
-	$prefix          = Auto_Alt_Text_Common::getAltPrefix();
-	$has_batched      = Auto_Alt_Text_Admin::hasRanBatchAtLeastOnce();
-	$selected_service = Auto_Alt_Text_Common::getSelectedService();
-	$hasAuth         = false;
+	$nonce_action     = Auto_Alt_Text_Common::NONCE_NAMESPACE;
+	$confidence       = Auto_Alt_Text_Common::get_confidence();
+	$prefix           = Auto_Alt_Text_Common::get_alt_prefix();
+	$has_batched      = Auto_Alt_Text_Admin::has_ran_batch_at_least_once();
+	$selected_service = Auto_Alt_Text_Common::get_selected_service();
+	$has_auth         = false;
 
 	Alt_Text_Service_Switch::$service = $selected_service;
 
 	/** @var Auto_Alt_Text_Aws $service */
 	if ( $service = Alt_Text_Service_Switch::instance() ) {
-
-		$hasAuth = ! empty( $service->auth() );
+		$has_auth = ! empty( $service->auth() );
 	}
 
-	include( __DIR__ .'/views/batch.php' );
+	include( __DIR__ . '/views/batch.php' );
 	include( __DIR__ . '/views/admin.php' );
 }
 
 /**
- * @param array $groups
+ * [auto_alt_text_load description]
+ *
+ * @return [type] [description]
  */
 function auto_alt_text_load() {
-	// Classes
-	require( __DIR__ . '/classes/auto-alt-text-service-interface.php');
-	require( __DIR__ . '/classes/auto-alt-text-service-switch.php');
-	require( __DIR__ . '/classes/auto-alt-text-admin.php');
+	require( __DIR__ . '/classes/auto-alt-text-service-interface.php' );
+	require( __DIR__ . '/classes/auto-alt-text-service-switch.php' );
+	require( __DIR__ . '/classes/auto-alt-text-admin.php' );
 	require( __DIR__ . '/classes/auto-alt-text-batch.php' );
-	require( __DIR__ . '/classes/auto-alt-text-admin-batch.php');
-	require( __DIR__ . '/classes/auto-alt-text-common.php');
+	require( __DIR__ . '/classes/auto-alt-text-admin-batch.php' );
+	require( __DIR__ . '/classes/auto-alt-text-common.php' );
 	require( __DIR__ . '/classes/auto-alt-text-db.php' );
-
-	// Functions
 	require( __DIR__ . '/functions/auto-alt-text-add-attachment.php' );
 }
 
@@ -93,7 +92,7 @@ function auto_alt_text_load() {
  * Stages based on the admin batch process.
  */
 function auto_alt_text_batch_button() {
-	switch( $_GET['stage'] ) {
+	switch ( $_GET['stage'] ) {
 		case 'start':
 			Auto_Alt_Text_Admin_Batch::start();
 			break;

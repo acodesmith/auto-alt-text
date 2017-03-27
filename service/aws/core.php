@@ -141,8 +141,8 @@ class Auto_Alt_Text_Aws implements Auto_Alt_Text_Service_Interface
         if( empty( $results ) )
             return false;
 
-        $prefix     = Auto_Alt_Text_Common::getAltPrefix();
-        $confidence = Auto_Alt_Text_Common::getConfidence();
+        $prefix     = Auto_Alt_Text_Common::get_alt_prefix();
+        $confidence = Auto_Alt_Text_Common::get_confidence();
         $text       = '';
 
         foreach( $results as $key => $result ) {

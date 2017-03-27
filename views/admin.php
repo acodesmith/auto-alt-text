@@ -8,8 +8,8 @@
         <input type="hidden" name="aat_selected_service" value="<?php echo $selected_service ; ?>">
         <table class="form-table">
             <tbody>
-            <?php /** @var boolean $hasAuth */ ?>
-            <?php if( $hasAuth ): ?>
+            <?php /** @var boolean $has_auth */ ?>
+            <?php if( $has_auth ): ?>
                 <tr>
                     <td colspan="2">
                         <div class="notice notice-success">

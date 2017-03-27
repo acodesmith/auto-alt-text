@@ -11,7 +11,7 @@ class Auto_Alt_Text_Admin
     /**
      * @return bool
      */
-    public static function hasRanBatchAtLeastOnce()
+    public static function has_ran_batch_at_least_once()
     {
         return ! empty( get_option( self::HAS_RAN_BATCH_ONCE_NAMESPACE ) );
     }
@@ -33,7 +33,7 @@ class Auto_Alt_Text_Admin
      * Handle all the $_POST data from the admin form.
      * Check the nonce and then process the postmeta and options data
      */
-    public static function processPost()
+    public static function process_post()
     {
         //First validate our nonce
         if (!empty($_POST['aat_wpnonce']) && wp_verify_nonce($_POST['aat_wpnonce'], Auto_Alt_Text_Common::NONCE_NAMESPACE)) {
