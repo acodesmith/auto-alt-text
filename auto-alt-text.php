@@ -64,7 +64,8 @@ function auto_alt_text_admin_page() {
 	Alt_Text_Service_Switch::$service = $selected_service;
 
 	/** @var Auto_Alt_Text_Aws $service */
-	if ( $service = Alt_Text_Service_Switch::instance() ) {
+	$service = Alt_Text_Service_Switch::instance();
+	if ( $service ) {
 		$has_auth = ! empty( $service->auth() );
 	}
 
