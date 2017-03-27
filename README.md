@@ -20,3 +20,6 @@ Most importantly AI image recognition is super cool!
 Currently, the only supported service is AWS Image Rekognition. 
 AWS charges based on usage. Each image processed will increase the cost.
 Please monitor your AWS bill!
+
+## TODOs
+* Settings Page needs descriptions for each field

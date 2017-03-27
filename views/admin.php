@@ -19,7 +19,13 @@
 						<?php if ( ! $has_batched ) : ?>
 						<div class="notice notice-warning">
 							<p>
-								<?php echo esc_html( 'Auto Alt Text <strong>highly</strong> recommends <a class="button thickbox" href="#TB_inline?width=600&height=250&inlineId=batch-thickbox-content" data-aat-run="batch">running a batch</a> on all images.', 'aat' ); ?>
+							<?php printf(
+								wp_kses(
+									__( 'Auto Alt Text <strong>highly</strong> recommends <a class="button thickbox" href="%s" data-aat-run="batch">running a batch</a> on all images.', 'aat' ),
+									[ 'a' => [ 'class' => [], 'href' => [], 'data-aat-run' => [] ] ]
+								),
+								'#TB_inline?width=600&height=250&inlineId=batch-thickbox-content'
+							); ?>
 							</p>
 						</div>
 						<?php endif; ?>
@@ -48,7 +54,7 @@
 							<hr>
 							<label><?php esc_html_e( 'Alternative Option: Configuration File', 'aat' ); ?></label>
 							<p class="description">
-								Full file path to <code>json</code> authentication file.
+								<?php printf( wp_kses( __( 'Full file path to <code>json</code> authentication file.', 'aat' ), [ 'code' => [] ] ) ); ?>
 							</p>
 							<input type="text" name="aat_aws_auth_location" class="large-text" placeholder="/var/www/html/aws_auth.json">
 						</div>
