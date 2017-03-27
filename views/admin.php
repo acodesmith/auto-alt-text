@@ -4,8 +4,8 @@
     <form method="post">
         <input type="hidden" id="aat_wpnonce" name="aat_wpnonce" value="<?php echo wp_create_nonce( $nonce_action ) ?>">
         <input type="hidden" name="_wp_http_referer" value="<?php echo $_SERVER['REQUEST_URI'] ; ?>">
-        <?php /** @var string $selectedService */ ?>
-        <input type="hidden" name="aat_selected_service" value="<?php echo $selectedService ; ?>">
+        <?php /** @var string $selected_service */ ?>
+        <input type="hidden" name="aat_selected_service" value="<?php echo $selected_service ; ?>">
         <table class="form-table">
             <tbody>
             <?php /** @var boolean $hasAuth */ ?>
@@ -15,8 +15,8 @@
                         <div class="notice notice-success">
                             <p><?php _e( 'AUTHENTICATION ACTIVE', 'sample-text-domain' ); ?></p>
                         </div>
-                        <?php /** @var boolean $hasBatched */ ?>
-                        <?php if( ! $hasBatched ): ?>
+                        <?php /** @var boolean $has_batched */ ?>
+                        <?php if( ! $has_batched ): ?>
                         <div class="notice notice-warning">
                             <p>
                                 <?php _e( 'Auto Alt Text <strong>highly</strong> recommends <a class="button thickbox" href="#TB_inline?width=600&height=250&inlineId=batch-thickbox-content" data-aat-run="batch">running a batch</a> on all images.', 'sample-text-domain' ); ?>

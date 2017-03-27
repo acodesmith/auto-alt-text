@@ -65,14 +65,14 @@ class Auto_Alt_Text_Admin
      *
      * @todo integrate MS AI Authentication
      *
-     * @param $selectedService
+     * @param $selected_service
      */
-    public static function processServiceAuth( $selectedService)
+    public static function processServiceAuth( $selected_service)
     {
 
-        Alt_Text_Service_Switch::$service = $selectedService;
+        Alt_Text_Service_Switch::$service = $selected_service;
 
-        switch( $selectedService ) {
+        switch( $selected_service ) {
 
             case Alt_Text_Service_Switch::SERVICE_AWS:
 

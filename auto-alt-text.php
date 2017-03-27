@@ -56,11 +56,11 @@ function auto_alt_text_admin_page() {
 	$nonce_action    = Auto_Alt_Text_Common::NONCE_NAMESPACE;
 	$confidence      = Auto_Alt_Text_Common::getConfidence();
 	$prefix          = Auto_Alt_Text_Common::getAltPrefix();
-	$hasBatched      = Auto_Alt_Text_Admin::hasRanBatchAtLeastOnce();
-	$selectedService = Auto_Alt_Text_Common::getSelectedService();
+	$has_batched      = Auto_Alt_Text_Admin::hasRanBatchAtLeastOnce();
+	$selected_service = Auto_Alt_Text_Common::getSelectedService();
 	$hasAuth         = false;
 
-	Alt_Text_Service_Switch::$service = $selectedService;
+	Alt_Text_Service_Switch::$service = $selected_service;
 
 	/** @var Auto_Alt_Text_Aws $service */
 	if ( $service = Alt_Text_Service_Switch::instance() ) {
