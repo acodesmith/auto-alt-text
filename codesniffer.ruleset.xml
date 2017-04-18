@@ -3,24 +3,14 @@
 	<description>WordPress Coding Standards</description>
 
 	<rule ref="WordPress-Core"/>
-	<rule ref="WordPress-Docs"/>
-	<rule ref="WordPress-Extra"/>
 	<rule ref="WordPress-VIP"/>
 
-	<rule ref="WordPress.PHP.DiscouragedPHPFunctions">
-		<!-- From "Extra": The create_function group is excluded as WP core still supports PHP 5.2 and 5.2 does not support anonymous functions. -->
-		<!-- From "VIP": The obfuscation group is excluded as there are plenty of legitimate uses for the base64 functions. -->
-		<properties>
-			<property name="exclude" value="create_function,obfuscation" />
-		</properties>
-	</rule>
-
-	<rule ref="Generic.WhiteSpace.ScopeIndent.IncorrectExact">
-		<type>warning</type>
-	</rule>
-
-	<rule ref="WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid">
-		<type>warning</type>
+		<!-- Include the WordPress ruleset, with exclusions. -->
+	<rule ref="WordPress-VIP">
+		<!-- These may need to be excluded if they throw too many false positives -->
+		<!-- <exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" /> -->
+		<!-- <exclude name="Generic.WhiteSpace.ScopeIndent.IncorrectExact" /> -->
+		<exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
 	</rule>
 
 	<exclude-pattern>/service/aws/vendor/*</exclude-pattern>
