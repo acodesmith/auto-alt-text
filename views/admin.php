@@ -2,8 +2,7 @@
 	<h1><?php esc_html_e( 'Auto Alt Text Settings', 'aat' ); ?> <button data-aat-run="batch" class="button"><?php esc_html_e( 'Run Batch', 'aat' ); ?></button></h1>
 
 	<form method="post">
-		<input type="hidden" id="aat_wpnonce" name="aat_wpnonce" value="<?php echo wp_create_nonce( $nonce_action ) ?>">
-		<input type="hidden" name="_wp_http_referer" value="<?php echo esc_attr( $_SERVER['REQUEST_URI'] ); ?>">
+		<?php wp_nonce_field( $nonce_action, 'aat_wpnonce' ); ?>
 		<?php /** @var string $selected_service */ ?>
 		<input type="hidden" name="aat_selected_service" value="<?php echo esc_attr( $selected_service ); ?>">
 		<table class="form-table">
