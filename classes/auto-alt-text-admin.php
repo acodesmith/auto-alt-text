@@ -33,10 +33,10 @@ class Auto_Alt_Text_Admin {
 	 */
 	public static function process_post() {
 		//First validate our nonce
-		if ( ! empty( $_POST['aat_wpnonce'] ) && wp_verify_nonce( $_POST['aat_wpnonce'], Auto_Alt_Text_Common::NONCE_NAMESPACE ) ) {
+		if ( ! empty( $_POST['aat_wpnonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['aat_wpnonce'] ) ), Auto_Alt_Text_Common::NONCE_NAMESPACE ) ) {
 
 			if ( ! empty( $_POST['aat_selected_service'] ) ) {
-				self::process_service_auth( $_POST['aat_selected_service'] );
+				self::process_service_auth( sanitize_text_field( wp_unslash( $_POST['aat_selected_service'] ) ) );
 			}
 
 			if ( ! empty( $_POST['aat_confidence'] ) ) {
@@ -49,8 +49,7 @@ class Auto_Alt_Text_Admin {
 			}
 
 			if ( ! empty( $_POST['aat_prefix'] ) ) {
-
-				update_option( Auto_Alt_Text_Common::ALT_PREFIX_NAMESPACE, sanitize_text_field( $_POST['aat_prefix'] ) );
+				update_option( Auto_Alt_Text_Common::ALT_PREFIX_NAMESPACE, sanitize_text_field( wp_unslash( $_POST['aat_prefix'] ) ) );
 			}
 		}
 	}
@@ -78,8 +77,8 @@ class Auto_Alt_Text_Admin {
 						Alt_Text_Service_Switch::load_class();
 					}
 
-					update_option( Auto_Alt_Text_Aws::AWS_KEY_NAMESPACE, sanitize_text_field( $_POST['aat_aws_key'] ) );
-					update_option( Auto_Alt_Text_Aws::AWS_SECRET_NAMESPACE, sanitize_text_field( $_POST['aat_aws_secret'] ) );
+					update_option( Auto_Alt_Text_Aws::AWS_KEY_NAMESPACE, sanitize_text_field( wp_unslash( $_POST['aat_aws_key'] ) ) );
+					update_option( Auto_Alt_Text_Aws::AWS_SECRET_NAMESPACE, sanitize_text_field( wp_unslash( $_POST['aat_aws_secret'] ) ) );
 				}
 
 				break;
