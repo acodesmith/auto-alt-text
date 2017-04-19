@@ -10,7 +10,7 @@ class Auto_Alt_Text_Admin_Batch {
 	const STAGE_COMPLETE = 'complete';
 
 	public static function respond( $html, $stage, $percentage = 0 ) {
-		echo json_encode([
+		echo wp_json_encode([
 			'html'       => $html,
 			'stage'      => $stage,
 			'percentage' => $percentage,
