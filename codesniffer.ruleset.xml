@@ -10,6 +10,8 @@
 		<!-- These may need to be excluded if they throw too many false positives -->
 		<!-- <exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" /> -->
 		<!-- <exclude name="Generic.WhiteSpace.ScopeIndent.IncorrectExact" /> -->
+		<exclude name="WordPress.VIP.SuperGlobalInputUsage.AccessDetected" />
+		<exclude name="WordPress.WP.PreparedSQL.NotPrepared" />
 		<exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
 	</rule>
 
