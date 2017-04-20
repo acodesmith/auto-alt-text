@@ -15,5 +15,5 @@
 		<exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
 	</rule>
 
-	<exclude-pattern>/service/aws/vendor/*</exclude-pattern>
+	<exclude-pattern>/service/aws/*</exclude-pattern>
 </ruleset>
