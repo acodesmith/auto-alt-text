@@ -1,0 +1,16 @@
+{
+    "name": "acodesmith/auto-alt-text",
+    "description": "AI Generated Alt Text For Images",
+    "authors": [
+        {
+            "name": "Adam Smith",
+            "email": "adam@acodesmith.com"
+        },
+        {
+            "name": "Steven Slack",
+            "email": "stevenslack@gmail.com"
+        }
+    ],
+    "type": "wordpress-plugin",
+    "require": {}
+}
